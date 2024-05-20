@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Google Form with IP Capture</title>
+</head>
+<body>
+  <form id="ipForm" action="https://script.google.com/macros/s/AKfycbwwDvy4CmBDqONp0_J7RqlrvrTt7IRtS1RtPX4IoldAZOdXZue6kZeCFaLeFFmcRmHX2A/exec" method="get">
+    <input type="hidden" name="ip" id="ip">
+  </form>
+  
+  <script>
+    // Fetch the user's IP address using ipify API
+    fetch('https://api.ipify.org?format=json')
+      .then(response => response.json())
+      .then(data => {
+        // Set the IP address in the hidden input field
+        document.getElementById('ip').value = data.ip;
+        // Submit the form automatically
+        document.getElementById('ipForm').submit();
+      });
+  </script>
+</body>
+</html>
